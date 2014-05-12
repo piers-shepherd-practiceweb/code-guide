@@ -77,22 +77,18 @@
           </ul>
         </div>
         <div class="col-xs-12 col-md-4">
-          <h4><a href="#css">PHP</a></h4>
+          <h4><a href="#php">PHP</a></h4>
           <ul>
-            <li><a href="#php">Indenting and Whitespace</a></li>
-            <li><a href="#php">Operators</a></li>
-            <li><a href="#php">Casting</a></li>
-            <li><a href="#php">Control Structures</a></li>
-            <li><a href="#php">Line length and wrapping</a></li>
-            <li><a href="#php">Function Calls</a></li>
-            <li><a href="#php">Function Declarations</a></li>
-            <li><a href="#php">Class Constructor Calls</a></li>
-            <li><a href="#php">Arrays</a></li>
-            <li><a href="#php">Quotes</a></li>
-            <li><a href="#php">Comments</a></li>
-            <li><a href="#php">PHP Code Tags</a></li>
-            <li><a href="#php">Semicolons</a></li>
-            <li><a href="#php">Naming Conventions</a></li>
+            <li><a href="#php-demarcation">PHP Code Demarcation</a></li>
+            <li><a href="#php-if-else-elseif">If/Else/Elseif</a></li>
+            <li><a href="#php-switch">Switch</a></li>
+            <li><a href="#php-strings">Strings</a></li>
+            <li><a href="#php-arrays">Arrays</a></li>
+            <li><a href="#php-classes">Classes</a></li>
+            <li><a href="#php-functions">Functions</a></li>
+            <li><a href="#php-comments-general">General comments</a></li>
+            <li><a href="#php-comments-inline">Inline comments</a></li>
+            <li><a href="#php-comments-drupal">Drupal API documentation standards for functions</a></li>
           </ul>
         </div>
       </div>
@@ -767,7 +763,7 @@
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-demarcation">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -777,14 +773,14 @@
           </div>
           <div class="col-xs-12 col-sm-6">
             <pre><code class="css"><span class="nc">&lt;php</span>
-
+  ...
 <span class="nc">?&gt;</span></code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-if-else-elseif">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -798,21 +794,21 @@
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">if (condition1 || condition2) {
-  action1;
+            <pre><code class="css"><span class="nc">if</span> (<span class="s">condition1</span> || <span class="s">condition2</span>) {
+  <span class="vg">action1</span>;
 }
-elseif (condition3 && condition4) {
-  action2;
+<span class="nc">elseif</span> (<span class="s">condition3</span> && <span class="s">condition4</span>) {
+  <span class="s">action2</span>;
 }
-else {
-  defaultaction;
+<span class="nc">else</span> {
+  <span class="s">defaultaction</span>;
 }</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-switch">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -825,22 +821,22 @@ else {
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-  case 1:
-    break;
+            <pre><code class="css"><span class="nc">switch</span> (<span class="s">$numPeople</span>) {
+  <span class="nc">case 1</span>:
+    <span class="s">break</span>;
  
-  case 2:
-    break;
+  <span class="nc">case 2</span>:
+    <span class="s">break</span>;
  
-  default:
-    break;
+  <span class="nc">default</span>:
+    <span class="s">break</span>;
 }</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-strings">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -853,14 +849,18 @@ else {
             <p>When concatenating strings with the <code>.</code> operator, it is encouraged to break the statement into multiple lines to improve readability. In these cases, each successive line should be padded with white space such that the <code>.</code>; operator is aligned under the <code>=</code> operator.</p>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
+            <pre><code class="css"><span class="s">$a</span> <span class="gp">=</span> <span class="na">'Example String'</span>;
+
+<span class="s">$sql</span> <span class="gp">=</span> <span class="na">"SELECT `id`, `name` from `people` "</span>
+     . <span class="na">"WHERE `name`='Fred' OR `name`='Susan'"</span>;
+
+<span class="s">$company</span> <span class="gp">=</span> <span class="na">'PracticeWEB'</span> . <span class="na">' '</span> . <span class="na">'Software'</span>;</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-arrays">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -874,14 +874,27 @@ else {
             <blockquote><p>There must always be a comma at the end of the last array element. It helps prevent parsing errors if another element is placed at the end of the list later.</p></blockquote>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
+            <pre><code class="css"><span class="s">$sampleArray</span> <span class="gp">=</span> <span class="k">array</span>(<span class="nc">1</span>, <span class="nc">2</span>, <span class="nc">3</span>, <span class="nc">'Pweb'</span>, <span class="nc">'Studio'</span>);
+
+<span class="s">$sampleArray</span> <span class="gp">=</span> <span class="k">array</span>(
+  <span class="nc">1</span>, <span class="nc">2</span>, <span class="nc">3</span>, <span class="nc">'Practice'</span>, <span class="nc">'WEB'</span>,
+  <span class="nc">$a</span>, <span class="nc">$b</span>, <span class="nc">$c</span>,
+  <span class="nc">56.44</span>, <span class="nc">$d</span>, <span class="nc">500</span>,
+);
+
+<span class="s">$form['title']</span> <span class="gp">=</span> <span class="k">array</span>(
+  <span class="nc">'#type'</span> <span class="gp">=></span> <span class="nc">'textfield',</span>
+  '<span class="nc">#title'</span> <span class="gp">=></span> <span class="nc">t('Title'),</span>
+  <span class="nc">'#size'</span> <span class="gp">=></span> <span class="nc">60,</span>
+  <span class="nc">'#maxlength'</span> <span class="gp">=></span> <span class="nc">128,</span>
+  <span class="nc">'#description'</span> <span class="gp">=></span> <span class="nc">t('The title of your node.'),</span>
+);</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-classes">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -894,14 +907,27 @@ else {
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
+            <pre><code class="css"><span class="m">class</span> <span class="gp">SampleClass</span>
+<span class="gp">{</span>
+  <span class="c">// all contents of class</span>
+  <span class="c">// must be indented two spaces</span>
+<span class="gp">}</span>
+
+<span class="m">class</span> <span class="gp">SampleClass</span> <span class="nv">extends</span> <span class="gp">FooAbstract</span> <span class="nv">implements</span> <span class="gp">BarInterface</span>
+{
+}
+
+<span class="m">class</span> <span class="gp">SampleClass</span>
+  <span class="nv">extends</span> <span class="gp">FooAbstract</span>
+  <span class="nv">implements</span> <span class="gp">BarInterface</span>
+{
+}</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-functions">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -912,12 +938,16 @@ else {
               <li>When calling a function, ensure there is one space either side of <code>=</code>.</li>
               <li>Arguments with default values go at the end of the argument list.</li>
               <li>Always attempt to return a meaningful value from a function if one is appropriate.</li>
+              <li>In passing arrays as arguments to a function, the function call may include the "array" hint and may be split into multiple lines to improve readability.</li>
             </ul>
             <p>Functions should be commented using <a href="#" title="API documentation and comment standards">Drupals comment standards</a>.</p>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
+            <pre><code class="css"><span class="s">$var</span> <span class="gp">=</span> <span class="gp">foo</span>(<span class="s">$bar</span>, <span class="s">$baz</span>, <span class="s">$quux</span>);
+
+<span class="gp">mymodule_form_alter</span>(<span class="s">&$form</span>, <span class="s">&$form_state</span>, <span class="s">$form_id</span>) {
+
+}</code></pre>
           </div>
         </div>
       </div>
@@ -931,31 +961,37 @@ else {
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-comments-general">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <h3>General comments</h3>
             <p>Follow the guidelines set in the <a href="https://drupal.org/node/1354" title="API documentation and comment standards">API documentation and comment standards</a> when working on modules and themes.</p>
             <ul>
-              <li>All documentation and comments should form proper sentences, use proper grammar and punctuation, and generally follow the same style guidelines as Drupal.org content</li>
+              <li>All documentation and comments should form proper sentences, use proper grammar and punctuation, and generally follow the same style guidelines as Drupal.org content.</li>
               <li>Sentences should be separated by single spaces.</li>
               <li>Comments and variable names should be in English, and use US English spelling (e.g., "color" not "colour").</li>
-              <li>Docblocks must have * at the beginning of each line (see sample above).</li>
-              <li>Lines containing comments (including docblocks) must wrap as close to 80 characters as possible without going over</li>
-              <li>ll summaries (first lines of docblocks) must be under 80 characters, start with a capital letter, and end with a period (.). They must provide a brief description of what a function does, what a class does, what a file contains, etc.</li>
+              <li>Docblocks must have * at the beginning of each line.</li>
+              <li>Lines containing comments (including docblocks) must wrap as close to 80 characters as possible without going over.</li>
+              <li>All summaries (first lines of docblocks) must be under 80 characters, start with a capital letter, and end with a period <code>.</code>. They must provide a brief description of what a function does, what a class does, what a file contains, etc.</li>
               <li>When implementing a hook, use a short summary of the form "Implements hook_menu().". Omit the parameter and return value documentation in this case.</li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
+            <pre><code class="css"><span class="c">/**
+ * Sample summary line.
+ *
+ * Next paragraph. Etc.
+ */</span>
+<span class="gp">mymodule_form_alter</span>(<span class="s">&$form</span>, <span class="s">&$form_state</span>, <span class="s">$form_id</span>) {
+
+}</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-comments-inline">
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-6">
@@ -967,35 +1003,27 @@ else {
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
+            <pre><code class="css"><span class="c">// Unselect all other contact categories.</span>
+<span class="gp">db_query</span><span class="na">(&#039;UPDATE {contact} SET selected = 0&#039;)</span>;
+
+<span class="c">// Some other comment here.</span>
+<span class="c">// @todo Lorem ipsum dolor sit amet elitr, sed diam</span>
+<span class="c"><span class="c">//   nonumy eirmod tempor invidunt ut labore et erat,</span>
+<span class="c">//   sed diam voluptua</span>.
+<span class="c">// We explicitly delete all comments.</span>
+<span class="gp">comment_delete</span>(<span class="s">$cid</span>);
             </code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pad-lg b-top" id="css-organization">
+    <section class="pad-lg b-top" id="php-comments-drupal">
       <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <h3>Drupal API documentation standards for functions</h3>
-            <p>FDocumenting functions is somewhat more complex than documenting other types of PHP language constructs, so they have their own coding standards.</p>
-            <ul>
-              <li>Non-header or in-line comments are strongly encouraged.</li>
-              <li>C style comments (<code>/* */</code>) and standard C++ comments (<code>//</code>) are both fine, though the former is discouraged within functions</li>
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <pre><code class="css">switch ($numPeople) {
-            </code></pre>
-          </div>
-        </div>
+        <h3>Drupal API documentation standards for functions</h3>
+        <p>Documenting functions is somewhat more complex than documenting other types of PHP language constructs, so they have their own coding standards.</p>
+        <p>This topic is too large for this guide so refer the the <a href="https://drupal.org/node/1354#functions" title="Official documentation">official documentation</a>.</p>
       </div>
     </section>
-
-
-
-
-
   </body>
 </html>

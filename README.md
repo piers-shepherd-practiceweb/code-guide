@@ -2,6 +2,8 @@
 
 PracticeWEBs Code Guide is a set a guidlines for writing consistent, readable and maintanable code for Drupal and other web projects.
 
+http://piers-shepherd-practiceweb.github.io/Code-guide/
+
 ### CSS and HTML 
 Source: https://github.com/mdo/code-guide
 
